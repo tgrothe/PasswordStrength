@@ -17,8 +17,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.apache.commons:commons-lang3:3.18.0'
-    implementation 'org.json:json:20250517'
+    // https://mvnrepository.com/artifact/me.gosimple/nbvcxz
+    implementation 'me.gosimple:nbvcxz:1.5.1'
 }
 
 java {
