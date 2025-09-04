@@ -28,7 +28,7 @@ jobs:
 #        run: ./gradlew jar
 
       - name: Build executable with statically linked libs
-        run: ./gradlew nativeCompile
+        run: ./gradlew nativeCompile --build-args="--static"
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
