@@ -1,6 +1,18 @@
-import java.awt.*;
-import java.util.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.util.Comparator;
+import java.util.Random;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import me.gosimple.nbvcxz.Nbvcxz;
@@ -9,6 +21,10 @@ import me.gosimple.nbvcxz.scoring.Result;
 
 public class Main {
   public static void main(String[] args) {
+    SwingUtilities.invokeLater(Main::showUI);
+  }
+
+  private static void showUI() {
     JLabel label1 = new JLabel("Enter password:");
     JTextField textField1 = new JTextField(20);
     JLabel label2 = new JLabel("Password strength:");
