@@ -48,3 +48,24 @@ jar {
 run {
     standardInput = System.in
 }
+
+graalvmNative {
+    binaries.all {
+        resources.autodetect()
+    }
+    binaries {
+        main {
+            buildArgs.add("-H:+ForeignAPISupport")
+            buildArgs.add("--static-nolibc")
+        }
+    }
+    agent {
+        enabled = true
+        metadataCopy {
+            inputTaskNames.add("run")
+            outputDirectories.add("src/main/resources/META-INF/native-image/reachability-metadata.json")
+            mergeWithExisting = true
+        }
+        defaultMode = "standard"
+    }
+}
