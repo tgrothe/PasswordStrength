@@ -55,7 +55,7 @@ graalvmNative {
     }
     binaries {
         main {
-            buildArgs.add("-H:+ForeignAPISupport")
+            // buildArgs.add("-H:+ForeignAPISupport")
             // buildArgs.add("--static-nolibc")
         }
     }
