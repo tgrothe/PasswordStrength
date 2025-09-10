@@ -42,7 +42,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Build executable with statically linked libs
-        run: ./gradlew nativeCompile --build-args="--static"
+        run: ./gradlew nativeCompile --build-args="--static" --build-args="--libc=musl"
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
@@ -52,7 +52,7 @@ jobs:
           body: "Read the readme file for details."
 
   build-3:
-    needs: build-2
+    needs: build-1
     runs-on: windows-latest
     permissions:
       contents: write
