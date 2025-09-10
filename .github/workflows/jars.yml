@@ -47,12 +47,12 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/native/nativeCompile/*
+          file: /home/runner/work/PasswordStrength/PasswordStrength/build/native/nativeCompile/PasswordStrength
           file_glob: true
           body: "Read the readme file for details."
 
   build-3:
-    needs: build-1
+    needs: build-2
     runs-on: windows-latest
     permissions:
       contents: write
