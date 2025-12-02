@@ -41,7 +41,7 @@ jobs:
           native-image-musl: 'true'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-      - name: Build executable with statically linked libs
+      - name: Build ubuntu executable with statically linked libs
         run: ./gradlew nativeCompile --build-args="--static" --build-args="--libc=musl" --build-args="--no-fallback"
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
@@ -66,8 +66,8 @@ jobs:
           set-java-home: 'true'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-      - name: Build windows executable with half-statically linked libs
-        run: ./gradlew nativeCompile --build-args="--static-nolibc" --build-args="-H:+ForeignAPISupport" --build-args="--no-fallback"
+      - name: Build windows executable with statically linked libs
+        run: ./gradlew nativeCompile --build-args="--static-nolibc" --build-args="-H:+ForeignAPISupport" --build-args="--no-fallback" --build-args="org.gradle.jvmargs=-Djava.io.tmpdir=D:/Temp"
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
